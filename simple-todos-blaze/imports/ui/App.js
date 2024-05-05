@@ -66,6 +66,9 @@ Template.mainContainer.helpers({
     // Restituisce true se l'utente è loggato, altrimenti false
     isUserLogged() {
         return isUserLogged();
+    },
+    getUser(){
+        return getUser();
     }
 });
 
@@ -77,6 +80,9 @@ Template.mainContainer.events({
         const currentHideCompleted = instance.state.get(HIDE_COMPLETED_STRING);
 
         instance.state.set(HIDE_COMPLETED_STRING, !currentHideCompleted);
+    },
+    'click .user'(){
+        Meteor.logout();
     }
 });
 
@@ -99,5 +105,6 @@ Template.form.events({
 
         // Ripulisci il valore dell'input
         target.text.value = '';
-    }
+    },
+    
 });
